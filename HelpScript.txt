@@ -1,9 +1,0 @@
-Heat files script:
-c:\Program Files (x86)\WiX Toolset v3.11\bin\heat.exe" dir "C:\Users\User_Name\Desktop\Multicorp5-vs2012\multicorpWindowShell\bin\x86\Debug" -dr APPLICATIONFOLDER -cg MulticorpFilesGroup -gg -gl -sf -srd -var "var.MyDir" -out ".\HeatFile.wxs"
-
-
-Define preprocessor variable:
-MyDir=C:\Users\User_Name\Desktop\Multicorp5-vs2012\multicorpWindowShell\bin\x86\Debug
-
-Custmize build-in dialog sets:
-http://wixtoolset.org/documentation/manual/v3/wixui/wixui_customizations.html
