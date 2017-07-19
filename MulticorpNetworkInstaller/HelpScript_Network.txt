@@ -1,0 +1,9 @@
+Heat files script:
+"c:\Program Files (x86)\WiX Toolset v3.10\bin\heat.exe" dir "C:\Users\zt424616\Documents\Multicorp\Multicorp5-vs2012-PipeNetworkv1.0\multicorpWindowShell\bin\x86\Debug" -dr APPLICATIONFOLDER -cg MulticorpNetworkFilesGroup -gg -gl -sf -srd -var "var.MyDir" -out ".\MulticorpNetworkHeatFile.wxs"
+
+
+Define preprocessor variable:
+MyDir=C:\Users\zt424616\Documents\Multicorp\Multicorp5-vs2012-PipeNetworkv1.0\multicorpWindowShell\bin\x86\Debug
+
+Custmize build-in dialog sets:
+http://wixtoolset.org/documentation/manual/v3/wixui/wixui_customizations.html
