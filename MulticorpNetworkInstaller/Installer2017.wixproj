@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>c1f91339-4763-4461-897a-7e98fd9f6233</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Installer2017</OutputName>
+    <OutputName>setup</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -14,11 +14,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>Debug;MyDir=C:\Users\zt424616\Documents\Multicorp\Multicorp5-vs2012-PipeNetworkv1.0\multicorpWindowShell\bin\x86\Debug</DefineConstants>
+    <DefineConstants>Debug;MyDir=$(SolutionDir)\multicorpWindowShell\bin\x86\$MulticorpTopcorp</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>MyDir=$(SolutionDir)multicorpWindowShell\bin\x86\MulticorpTopcorp</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MulticorpNetworkHeatFile.wxs" />
@@ -37,6 +38,24 @@
     <Content Include="topbanner493x58.bmp" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MulticorpTopcorp|x86' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MulticorpTopcorp|AnyCPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MulticorpTopcorp|Any CPU' ">
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Platform)\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent />
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>"$(wix)bin\heat.exe" dir $(SolutionDir)multicorpWindowShell\bin\x86\MulticorpTopcorp -dr APPLICATIONFOLDER -cg MulticorpNetworkFilesGroup -gg -gl -sf -srd -var "var.MyDir" -out ".\MulticorpNetworkHeatFile.wxs"</PreBuildEvent>
+  </PropertyGroup>
   <!--
 	To modify your build process, add your task inside one of the targets below and uncomment it.
 	Other similar extension points exist, see Wix.targets.

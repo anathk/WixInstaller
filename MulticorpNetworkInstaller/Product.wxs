@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 	<Product Id="*" 
-           Name="Multicorp Pipenetwork" 
+           Name="TOPCORP-Network" 
            Language="1033" 
-           Version="1.0.0.0" 
+           Version="6.0.0.0" 
            Manufacturer="Institute for Corrosion and Multiphase Technology" 
            UpgradeCode="8c9fdbeb-74bd-45cf-be46-daf33488276b">
     <Package InstallerVersion="200" 
              Compressed="yes" 
              InstallScope="perMachine" 
              Manufacturer="Institute for Corrosion and Multiphase Technology"
-             Description="Multicorp Pipenetwork" />
+             Description="TOPCORP-Network" />
     <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
     <WixVariable Id="WixUIBannerBmp" Value="topbanner493x58.bmp" />
     <WixVariable Id="WixUIDialogBmp" Value="background493x312.bmp" />
@@ -34,8 +34,8 @@
       <Component Id="CMP_DocumentationShortcut" Guid="209CFD06-9268-49D4-B4C6-FC1518FE31CA">
 
         <Shortcut Id="DocumentationStartMenuShortcut"
-                  Name="MulticorpNetwork"
-                  Description="MulticorpNetwork"
+                  Name="TOPCORP-Network"
+                  Description="TOPCORP-Network"
                   Target="[APPLICATIONFOLDER]Multicorp.exe" 
                   Icon="icon.ico"/>
         <Shortcut Id="UninstallShortcut"
@@ -45,7 +45,7 @@
                   Arguments="/x [ProductCode]" />
         <RemoveFolder Id="RemoveMyShortcutsDir" On="uninstall" />
         <RegistryValue Root="HKCU"
-                       Key="Software\Microsoft\MulticorpNetwork"
+                       Key="Software\Microsoft\TOPCORP-Network"
                        Name="installed"
                        Type="integer"
                        Value="1"
@@ -57,8 +57,8 @@
     <DirectoryRef Id="DesktopFolder">
      <Component Id="ApplicationShortcutDesktop" Guid="B94F59DE-3B59-49CB-B98E-6251E73AE614">
        <Shortcut Id="ApplicationDesktopShortcut" 
-                 Name="MulticorpNetwork" 
-                 Description="MulticorpNetwork" 
+                 Name="TOPCORP-Network" 
+                 Description="TOPCORP-Network" 
                  Target="[APPLICATIONFOLDER]Multicorp.exe"  
                  WorkingDirectory="APPLICATIONFOLDER" />
        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
@@ -81,9 +81,9 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="APPLICATIONFOLDER" Name="MulticorpNetwork" />
+				<Directory Id="APPLICATIONFOLDER" Name="TOPCORP-Network" />
         <Directory Id="ProgramMenuFolder">
-          <Directory Id="MyShortcutsDir" Name="MulticorpNetwork" />
+          <Directory Id="MyShortcutsDir" Name="TOPCORP-Network" />
         </Directory>
         <Directory Id="DesktopFolder" Name="Desktop" />
 			</Directory> 
